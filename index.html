@@ -119,11 +119,11 @@
             </span>
         </article>
     </section> -->
-    <section>
+    <!-- <section>
         <article class="row align-self-center" style="clear: both;">
 			<div id="formulaDiv"></div>
         </article>
-    </section>
+    </section> -->
     
     <!-- ------------------вложенный ряд------------------------- -->
     <!-- <section>
@@ -164,45 +164,43 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script>
 
-        // ------------------выпадающее меню по наведению----------
         $(document).ready(function(){
-        $(".theEqual").add("#menuGap").hover(function(){ 	
+
+        //------------------генерация рядов формул------------------
+        var f1={step0 : "\\lim_{x\\to0}{\\dfrac{3x^2-5x}{\\sin{3x}}}",
+        step1 : "\\Bigl(\\dfrac{0}{0}\\Bigr)",
+        step2 : "\\dfrac{6x+5}{3\\cos{3x}}",
+		step3 : "\\dfrac{5}{3}."};
+        var f2={step0 : "\\lim_{x\\to1}{\\dfrac{(x^2+3x+2)^2}{x^3+2x^2-x^2}}",
+        step1 : "\\dfrac{(1+3+2)^2}{1+2-1}",
+        step2 : "\\dfrac{36}{2}",
+		step3 : "18."};
+        var f3={step0 : "\\lim_{x\\to0}{\\dfrac{3x^2-5x}{\\sin{3x}}}",
+        step1 : "\\Bigl(\\dfrac{0}{0}\\Bigr)",
+        step2 : "\\dfrac{6x+5}{3\\cos{3x}}",
+		step3 : "\\dfrac{5}{3}."};
+        $('#formulaDiv').add( "<section class=\"container\"><hr><article class=\"row align-self-center\"  id=\"fd\" style=\"clear: both;\">" ).appendTo( document.body);
+			
+			// $('#fd').append("<span class=\"align-self-center\">$$"+f1.step0+"$$</span\>");
+			// renderMathInElement(document.body);
+			var i=0;
+			for (var prop in f1) {
+				i++;
+				if (i=1){$('#fd').append("<span class=\"align-self-center theEqual\">=</span>");}
+				$('#fd').append("<span class=\"align-self-center\">$$"+f1[prop]+"$$</span\>");
+				renderMathInElement(document.body);
+			}
+			
+		// ------------------выпадающее меню по наведению----------
+		$(".theEqual").add("#menuGap").hover(function(){ 	
             $("#menuGap").css( "display", "flex" ) 
                     .css("top",event.clientY)
                     .css("left",event.clientX);
                     $(this,'.theEqual').css("background", "#ddd")
             }, function(){  	
             $( "#menuGap" ).css( "display", "none" ) 
-            $(".theEqual").css("background", "transparent")
+            $(".theEqual").css("background", "transparent")	
           });
-        //------------------генерация рядов формул------------------
-        var formulas={step0 : "\\lim_{x\\to0}{\\dfrac{3x^2-5x}{\\sin{3x}}}",
-        step1 : "\\Bigl(\\dfrac{0}{0}\\Bigr)",
-        step2 : "\\dfrac{6x+5}{3\\cos{3x}}",
-		step3 : "\\dfrac{5}{3}."};
-		// for (var prop in formulas) {
-		// 	alert( prop ); 
-		// }
-        // for(var i=0; i<4; i++) {
-        // var y = formulas[i];	
-        // console.log(y.title);
-        // $('#cardDiv').addClass("card").add( "<span>$$"+(y.title)+"$$</span\><span class=\"align-self-center theEqual\">=</span>" ).appendTo( document.body);
-        //     renderMathInElement(document.body);
-        // }
-        $('#formulaDiv').add( "<section class=\"container\"><hr><article class=\"row align-self-center\"  id=\"fd\" style=\"clear: both;\">" ).appendTo( document.body);
-			
-			$('#fd').append("<span class=\"align-self-center\">$$"+formulas.step0+"$$</span\>");
-			renderMathInElement(document.body);
-			var i=0;
-			for (var prop in formulas) {
-				i++;
-				
-				$('#fd').append("<span class=\"align-self-center theEqual\">=</span>");
-				renderMathInElement(document.body);
-				$('#fd').append("<span class=\"align-self-center\">$$"+formulas[prop]+"$$</span\>");
-				renderMathInElement(document.body);
-			}
-			
 		$('#formulaDiv').add( "</article></section" ).appendTo(document.body);
         });
         //------------------генерация вложенного ряда---------------
@@ -211,7 +209,6 @@
             cardDiv.addClass("card").append( "<span>$$"+str+"$$  </span>" );
             renderMathInElement(document.body);
         };
-
         document.addEventListener("DOMContentLoaded", function() {
             renderMathInElement(document.body);
         });
