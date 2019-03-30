@@ -176,13 +176,13 @@
             $(".theEqual").css("background", "transparent")
           });
         //------------------генерация рядов формул------------------
-        var formulas=[
-        {title : "\\lim_{x\\to0}{\\dfrac{3x^2-5x}{\\sin{3x}}}"},
-        {title : "\\Bigl(\\dfrac{0}{0}\\Bigr)",},
-        {title : "\\dfrac{6x+5}{3\\cos{3x}}",},
-		{title : "\\dfrac{5}{3}."},
-		{title : "."}		
-        ];
+        var formulas={step0 : "\\lim_{x\\to0}{\\dfrac{3x^2-5x}{\\sin{3x}}}",
+        step1 : "\\Bigl(\\dfrac{0}{0}\\Bigr)",
+        step2 : "\\dfrac{6x+5}{3\\cos{3x}}",
+		step3 : "\\dfrac{5}{3}."};
+		// for (var prop in formulas) {
+		// 	alert( prop ); 
+		// }
         // for(var i=0; i<4; i++) {
         // var y = formulas[i];	
         // console.log(y.title);
@@ -191,17 +191,18 @@
         // }
         $('#formulaDiv').add( "<section class=\"container\"><hr><article class=\"row align-self-center\"  id=\"fd\" style=\"clear: both;\">" ).appendTo( document.body);
 			
-			$('#fd').append("<span class=\"align-self-center\">$$"+formulas[0].title+"$$</span\>");
+			$('#fd').append("<span class=\"align-self-center\">$$"+formulas.step0+"$$</span\>");
 			renderMathInElement(document.body);
 			var i=0;
-			while (!!(formulas[i+1].title='.')){
-			i++;		
-			var y = formulas[i];
-			$('#fd').append("<span class=\"align-self-center theEqual\">=</span>");
-			renderMathInElement(document.body);
-			$('#fd').append("<span class=\"align-self-center\">$$"+y.title+"$$</span\>");
-			renderMathInElement(document.body);
-        }
+			for (var prop in formulas) {
+				i++;
+				
+				$('#fd').append("<span class=\"align-self-center theEqual\">=</span>");
+				renderMathInElement(document.body);
+				$('#fd').append("<span class=\"align-self-center\">$$"+formulas[prop]+"$$</span\>");
+				renderMathInElement(document.body);
+			}
+			
 		$('#formulaDiv').add( "</article></section" ).appendTo(document.body);
         });
         //------------------генерация вложенного ряда---------------
