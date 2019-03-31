@@ -4,126 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel=stylesheet type="text/css" href=styles.css >
+    <!-- <link rel=stylesheet type="text/css" href=styles.css > -->
+    <style type="text/css">
+    .theEqual{
+        height: 1.5em;
+        width: 1.5em;
+        outline: none; 
+        border: 0;
+        text-align: center;
+        background: transparent;
+        display: block;
+        color: #0f0;
+        border-radius: 50%;   
+        cursor: pointer;
+    }
+    .theEqual:hover {  
+        color: #00f;
+        background: #eee;
+        border-radius: 50%;
+    }
+    #menuGap {
+        position: absolute;
+        width: 200px;
+        height: 50px;
+        padding: 0;
+        display: none;
+        text-align: left;
+        border-radius: 6px;
+    }
+    ul,li{
+        position: relative;
+        list-style-type: none;
+    }
+
+    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.1/katex.min.css" integrity="sha384-BDqcjN11/6D69oC63ObubLHNvQR2fNjin6+AzxA3xalB0swTj17TxVV1tL1Q5Png" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
-	<!-----ряды с формулами------------->
-    <!-- <section class="container "> 
-        <hr>
-        <article class="row align-self-center" style="clear: both;">
-            <span class="">$$\lim_{x\to0}{\dfrac{3x^2-5x}{\sin{3x}}}$$</span>
-            <span class="align-self-center theEqual">=</span>
-            <span>$$\Bigl(\dfrac{0}{0}\Bigr)$$</span>
-            <span class="align-self-center theEqual">=</span>
-            <span>$$\dfrac{6x+5}{3\cos{3x}}$$</span>
-            <span class="align-self-center theEqual">=</span>
-            <span  class="align-self-center">$$\dfrac{5}{3}.$$</span>
-        </article>
-        <article class="row align-self-center" style="clear: both;">
-            <span class="">$$\lim_{x\to1}{\dfrac{(x^2+3x+2)^2}{x^3+2x^2-x^2}}$$</span>
-            <span class="align-self-center theEqual">=</span>
-            <span>$$\dfrac{(1+3+2)^2}{1+2-1}$$</span>
-            <span class="align-self-center theEqual">=</span>
-            <span>$$\dfrac{36}{2}$$</span>
-            <span class="align-self-center theEqual">=</span>
-            <span  class="align-self-center">$$18.$$</span>
-        </article>
-        <article class="row align-self-center" style="clear: both;">
-            <span class="">$$\lim_{x\to0}{\dfrac{6^{2x}-7^{-2x}}{\sin{3x}-2x}}$$</span>
-            <span class="align-self-center theEqual">=</span>
-            <span>$$\Bigl(\dfrac{0}{0}\Bigr)$$</span>
-            <span class="align-self-center theEqual">=</span>
-            <span>$$\lim_{x\to0}\dfrac{2x6^{2x-1}+2x7^{-2x-1}}{3\cos{3x}-2}$$</span>
-            <span class="align-self-center theEqual">=</span>
-            <span>$$\dfrac{0}{1}$$</span>
-            <span class="align-self-center theEqual">=</span>
-            <span  class="align-self-center">$$0.$$</span>
-        </article>
-        <hr>
-        <article class="row align-self-center" style="clear: both;">
-            <span class="">
-                $$
-                \left\{
-                \begin{array}{l}
-                2x_1+x_2+x_3=5\\
-                x_1-2x_2+3x_3=5\\
-                7x_1+x_2-x_3=10\\
-                \end{array}\right.
-                $$                
-            </span>
-            <span class="align-self-center theEqual">=</span>
-            <span>
-                $$	\left(
-                \begin{array}{ccc|c}
-                2&-3&1&-1\\
-                5&2&-1&0\\
-                2&-3&2&3\\
-                \end{array}\right)  
-                $$                
-            </span>
-            <span class="align-self-center theEqual">=</span>
-            <span>
-                $$	\left(
-                \begin{array}{ccc|c}
-                1&-1.5&0.5&-0.5\\
-                5&2&-1&0\\
-                2&-3&2&3\\
-                \end{array}\right)  $$
-            </span>
-            <span class="align-self-center theEqual">=</span>
-            <span  class="align-self-center">
-                $$	\left(
-                \begin{array}{ccc|c}
-                1&-1.5&0.5&-0.5\\
-                0&9.5&-3.5&2.5\\
-                0&0&1&4\\
-                \end{array}\right)  $$
-            </span>
-            <span class="align-self-center theEqual">=</span>
-            <span  class="align-self-center">        
-                $$\left(
-                \begin{array}{ccc|c}
-                1&-1.5&0.5&-0.5\\
-                0&1&-7/19&9/15\\
-                0&0&1&4\\
-                \end{array}\right)  $$
-            </span>
-            <span class="align-self-center theEqual">=</span>
-            <span  class="align-self-center">
-                $$	\left(
-                \begin{array}{ccc|c}
-                1&0&-1/19&-2/19\\
-                0&1&-7/19&5/19\\
-                \end{array}\right)  $$
-            </span>
-            <span class="align-self-center theEqual">=</span>
-            <span  class="align-self-center">
-                $$	\left(
-                \begin{array}{ccc|c}
-                1&0&0&2/19\\
-                0&1&0&33/19\\
-                0&0&1&4\\
-                \end{array}\right)$$
-            </span>
-            <span class="align-self-center theEqual">=</span>
-            <span  class="align-self-center">
-                $$
-                \begin{array}{ccc}
-                x_1=2/19\\
-                x_2=33/19\\
-                x_3=4.\\
-                \end{array}$$
-            </span>
-        </article>
-    </section> -->
-    <!-- <section>
-        <article class="row align-self-center" style="clear: both;">
-			<div id="formulaDiv"></div>
-        </article>
-    </section> -->
     
     <!-- ------------------вложенный ряд------------------------- -->
     <!-- <section>
@@ -166,30 +85,52 @@
 
         $(document).ready(function(){
 
-        //------------------генерация рядов формул------------------
-        var f1={step0 : "\\lim_{x\\to0}{\\dfrac{3x^2-5x}{\\sin{3x}}}",
+        // --------------------ряды с формулами-------------------
+        var f1={
+        step0 : "\\lim_{x\\to0}{\\dfrac{3x^2-5x}{\\sin{3x}}}",
         step1 : "\\Bigl(\\dfrac{0}{0}\\Bigr)",
         step2 : "\\dfrac{6x+5}{3\\cos{3x}}",
-		step3 : "\\dfrac{5}{3}."};
-        var f2={step0 : "\\lim_{x\\to1}{\\dfrac{(x^2+3x+2)^2}{x^3+2x^2-x^2}}",
+		step3 : "\\dfrac{5}{3}."
+        };
+        rowGen(f1,'fd1');
+        var f2={
+        step0 : "\\lim_{x\\to1}{\\dfrac{(x^2+3x+2)^2}{x^3+2x^2-x^2}}",
         step1 : "\\dfrac{(1+3+2)^2}{1+2-1}",
         step2 : "\\dfrac{36}{2}",
-		step3 : "18."};
-        var f3={step0 : "\\lim_{x\\to0}{\\dfrac{3x^2-5x}{\\sin{3x}}}",
+		step3 : "18."
+        };
+        rowGen(f2,'fd2');
+        var f3={
+        step0 : "\\lim_{x\\to0}{\\dfrac{6^{2x}-7^{-2x}}{\\sin{3x}-2x}}",
         step1 : "\\Bigl(\\dfrac{0}{0}\\Bigr)",
-        step2 : "\\dfrac{6x+5}{3\\cos{3x}}",
-		step3 : "\\dfrac{5}{3}."};
-        $('#formulaDiv').add( "<section class=\"container\"><hr><article class=\"row align-self-center\"  id=\"fd\" style=\"clear: both;\">" ).appendTo( document.body);
-			
-			// $('#fd').append("<span class=\"align-self-center\">$$"+f1.step0+"$$</span\>");
-			// renderMathInElement(document.body);
+        step2 : "\\lim_{x\\to0}\\dfrac{2x6^{2x-1}+2x7^{-2x-1}}{3\\cos{3x}-2}",
+		step3 : "\\dfrac{0}{1}",
+		step4 : "0."
+        };
+        rowGen(f3,'fd3');
+        var f4={
+        step0 : "\\left\\{\\begin{array}{l}2x_1+x_2+x_3=5\\\\x_1-2x_2+3x_3=5\\\\7x_1+x_2-x_3=10\\\\ \\end{array}\\right.",
+        step1 : "\\left(\\begin{array}{ccc|c}2&-3&1&-1\\\\5&2&-1&0\\\\2&-3&2&3\\\\\\end{array}\\right)",
+        step2 : "\\left(\\begin{array}{ccc|c}1&-1.5&0.5&-0.5\\\\5&2&-1&0\\\\2&-3&2&3\\\\\\end{array}\\right)  ",
+		step3 : "\\left(\\begin{array}{ccc|c}1&-1.5&0.5&-0.5\\\\0&9.5&-3.5&2.5\\\\0&0&1&4\\\\\\end{array}\\right) ",
+		step4 : "\\left(\\begin{array}{ccc|c}1&-1.5&0.5&-0.5\\\\0&1&-7/19&9/15\\\\0&0&1&4\\\\\\end{array}\\right)  ",
+		step5 : "\\left(\\begin{array}{ccc|c}1&0&-1/19&-2/19\\\\0&1&-7/19&5/19\\\\\\end{array}\\right)",
+		step6 : "\\left(\\begin{array}{ccc|c}1&0&0&2/19\\\\0&1&0&33/19\\\\0&0&1&4\\\\\\end{array}\\right)",
+		step7 : "\\begin{array}{ccc}x_1=2/19\\\\x_2=33/19\\\\x_3=4.\\\\\\end{array}"
+        };
+        //------------------генерация рядов формул------------------
+        rowGen(f4,'fd4');
+        function rowGen(f,fd){
+            $('#formulaDiv').add( "<section class=\"container\"><hr><article class=\"row align-self-center\"  id=\""+fd+"\" style=\"clear: both;\">" ).appendTo( document.body);
 			var i=0;
-			for (var prop in f1) {
+			for (var prop in f) {
 				i++;
-				if (i=1){$('#fd').append("<span class=\"align-self-center theEqual\">=</span>");}
-				$('#fd').append("<span class=\"align-self-center\">$$"+f1[prop]+"$$</span\>");
+				if (i!=1){$('#'+fd+'').append("<span class=\"align-self-center theEqual\">=</span>");}
+				$('#'+fd+'').append("<span class=\"align-self-center\">$$"+f[prop]+"$$</span\>");
 				renderMathInElement(document.body);
 			}
+		    $('#formulaDiv').add( "</article></section>" ).appendTo(document.body); 
+        }
 			
 		// ------------------выпадающее меню по наведению----------
 		$(".theEqual").add("#menuGap").hover(function(){ 	
@@ -201,7 +142,6 @@
             $( "#menuGap" ).css( "display", "none" ) 
             $(".theEqual").css("background", "transparent")	
           });
-		$('#formulaDiv').add( "</article></section" ).appendTo(document.body);
         });
         //------------------генерация вложенного ряда---------------
         
