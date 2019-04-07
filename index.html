@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- <link rel=stylesheet type="text/css" href=styles.css > -->
     <style type="text/css">
+    .card-header{
+        background-color: blue;
+    }
     .theEqual{
         height: 1.5em;
         width: 1.5em;
@@ -19,8 +21,7 @@
         cursor: pointer;
     }
     .theEqual:hover {  
-        color: #00f;
-        background: #eee;
+        /* background: #eee; */
         border-radius: 50%;
     }
     #menuGap {
@@ -36,45 +37,33 @@
         position: relative;
         list-style-type: none;
     }
-
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.1/katex.min.css" integrity="sha384-BDqcjN11/6D69oC63ObubLHNvQR2fNjin6+AzxA3xalB0swTj17TxVV1tL1Q5Png" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
+    <section class="container" id="container">
     
     <!-- ------------------вложенный ряд------------------------- -->
-    <!-- <section>
-        <a href="javascript:cardGen('y=\\dfrac{2x-1}{4}\sqrt{2+x-x^2}+\dfrac{9}{8}\cdot\arcsin{\dfrac{2x-1}{3}}')">Create Card</a>
-        <article id="cardDiv" class="card"></article>
-    </section> -->
-
-    <!-- <section>
-        <div class="card" id="mathCard1">
-			<div class="card-header" id="headingOne">
-				<h5 class="mb-0">
-					<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-						$$y=\dfrac{2x-1}{4}\sqrt{2+x-x^2}+\dfrac{9}{8}\cdot\arcsin{\dfrac{2x-1}{3}} $$
-					</button>
-				</h5>
-			</div>
-			<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#mathCard1">
-				<div class="card-body">
-						$$y'=(\dfrac{1}{2}\sqrt{2+x-x^2}+\dfrac{(2x-1)(1-2x)}{8\sqrt{2+x-x^2}})+\dfrac{9}{8}\cdot\dfrac{\dfrac{2}{3}}{\sqrt{1-(\dfrac{2x-1}{3})^2}}= $$
-				</div>
-			</div>
-        </div>            
-    </section> -->
-
+    <section class="card" id="mathCard0">
+        <header class="card-header" id="headingOne">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse0"aria-controls="collapse0" id="button0">Вычисление производной</button>
+        </header>
+        <div id="collapse0" class="collapse" aria-labelledby="headingOne" data-parent="#mathCard0">
+            <div class="card-body" id="cardBody0"></div>
+        </div>          
+    </section>
     <!-- ------------------выпадающее меню по наведению---------- -->
     <nav id="menuGap" class="card">
         <ul>
-            <li><a href="#">RollBack to it</a></li>
-            <li><a href="#">Copy to new row</a></li>
+            <li><a href="#">Просто ряд</a></li>
+            <li><a href="#">Выпадающее меню</a></li>
         </ul>
     </nav>
 
+</section>
+<div class="card" id="cardDiv"></div>
     <!-- ----------------Скрипты------------------------------------- -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.1/katex.min.js" integrity="sha384-sKYm5us3z9/bRQA+cc3gPzqwI5RVgL8vJQx1lpBudr9IzHOR8fnFUH68dz1GsTQw" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.1/contrib/auto-render.min.js" integrity="sha384-RkgGHBDdR8eyBOoWeZ/vpGg1cOvSAJRflCUDACusAAIVwkwPrOUYykglPeqWakZu" crossorigin="anonymous"></script>
@@ -87,72 +76,90 @@
 
         // --------------------ряды с формулами-------------------
         var f1={
-        step0 : "\\lim_{x\\to0}{\\dfrac{3x^2-5x}{\\sin{3x}}}",
-        step1 : "\\Bigl(\\dfrac{0}{0}\\Bigr)",
-        step2 : "\\dfrac{6x+5}{3\\cos{3x}}",
-		step3 : "\\dfrac{5}{3}."
+            step0 : "\\lim_{x\\to0}{\\dfrac{3x^2-5x}{\\sin{3x}}}",
+            step1 : "\\Bigl(\\dfrac{0}{0}\\Bigr)",
+            step2 : "\\dfrac{6x+5}{3\\cos{3x}}",
+            step3 : "\\dfrac{5}{3}."
         };
         rowGen(f1,'fd1');
         var f2={
-        step0 : "\\lim_{x\\to1}{\\dfrac{(x^2+3x+2)^2}{x^3+2x^2-x^2}}",
-        step1 : "\\dfrac{(1+3+2)^2}{1+2-1}",
-        step2 : "\\dfrac{36}{2}",
-		step3 : "18."
+            step0 : "\\lim_{x\\to1}{\\dfrac{(x^2+3x+2)^2}{x^3+2x^2-x^2}}",
+            step1 : "\\dfrac{(1+3+2)^2}{1+2-1}",
+            step2 : "\\dfrac{36}{2}",
+            step3 : "18."
         };
         rowGen(f2,'fd2');
         var f3={
-        step0 : "\\lim_{x\\to0}{\\dfrac{6^{2x}-7^{-2x}}{\\sin{3x}-2x}}",
-        step1 : "\\Bigl(\\dfrac{0}{0}\\Bigr)",
-        step2 : "\\lim_{x\\to0}\\dfrac{2x6^{2x-1}+2x7^{-2x-1}}{3\\cos{3x}-2}",
-		step3 : "\\dfrac{0}{1}",
-		step4 : "0."
+            step0 : "\\lim_{x\\to0}{\\dfrac{6^{2x}-7^{-2x}}{\\sin{3x}-2x}}",
+            step1 : "\\Bigl(\\dfrac{0}{0}\\Bigr)",
+            step2 : "\\lim_{x\\to0}\\dfrac{2x6^{2x-1}+2x7^{-2x-1}}{3\\cos{3x}-2}",
+            step3 : "\\dfrac{0}{1}",
+            step4 : "0."
         };
         rowGen(f3,'fd3');
         var f4={
-        step0 : "\\left\\{\\begin{array}{l}2x_1+x_2+x_3=5\\\\x_1-2x_2+3x_3=5\\\\7x_1+x_2-x_3=10\\\\ \\end{array}\\right.",
-        step1 : "\\left(\\begin{array}{ccc|c}2&-3&1&-1\\\\5&2&-1&0\\\\2&-3&2&3\\\\\\end{array}\\right)",
-        step2 : "\\left(\\begin{array}{ccc|c}1&-1.5&0.5&-0.5\\\\5&2&-1&0\\\\2&-3&2&3\\\\\\end{array}\\right)  ",
-		step3 : "\\left(\\begin{array}{ccc|c}1&-1.5&0.5&-0.5\\\\0&9.5&-3.5&2.5\\\\0&0&1&4\\\\\\end{array}\\right) ",
-		step4 : "\\left(\\begin{array}{ccc|c}1&-1.5&0.5&-0.5\\\\0&1&-7/19&9/15\\\\0&0&1&4\\\\\\end{array}\\right)  ",
-		step5 : "\\left(\\begin{array}{ccc|c}1&0&-1/19&-2/19\\\\0&1&-7/19&5/19\\\\\\end{array}\\right)",
-		step6 : "\\left(\\begin{array}{ccc|c}1&0&0&2/19\\\\0&1&0&33/19\\\\0&0&1&4\\\\\\end{array}\\right)",
-		step7 : "\\begin{array}{ccc}x_1=2/19\\\\x_2=33/19\\\\x_3=4.\\\\\\end{array}"
+            step0 : "\\left\\{\\begin{array}{l}2x_1+x_2+x_3=5\\\\x_1-2x_2+3x_3=5\\\\7x_1+x_2-x_3=10\\\\ \\end{array}\\right.",
+            step1 : "\\left(\\begin{array}{ccc|c}2&-3&1&-1\\\\5&2&-1&0\\\\2&-3&2&3\\\\\\end{array}\\right)",
+            step2 : "\\left(\\begin{array}{ccc|c}1&-1.5&0.5&-0.5\\\\5&2&-1&0\\\\2&-3&2&3\\\\\\end{array}\\right)  ",
+            step3 : "\\left(\\begin{array}{ccc|c}1&-1.5&0.5&-0.5\\\\0&9.5&-3.5&2.5\\\\0&0&1&4\\\\\\end{array}\\right) ",
+            step4 : "\\left(\\begin{array}{ccc|c}1&-1.5&0.5&-0.5\\\\0&1&-7/19&9/15\\\\0&0&1&4\\\\\\end{array}\\right)  ",
+            step5 : "\\left(\\begin{array}{ccc|c}1&0&-1/19&-2/19\\\\0&1&-7/19&5/19\\\\\\end{array}\\right)",
+            step6 : "\\left(\\begin{array}{ccc|c}1&0&0&2/19\\\\0&1&0&33/19\\\\0&0&1&4\\\\\\end{array}\\right)",
+            step7 : "\\begin{array}{ccc}x_1=2/19\\\\x_2=33/19\\\\x_3=4.\\\\\\end{array}"
         };
-        //------------------генерация рядов формул------------------
         rowGen(f4,'fd4');
+
+        //------------------генерация рядов формул------------------
         function rowGen(f,fd){
-            $('#formulaDiv').add( "<section class=\"container\"><hr><article class=\"row align-self-center\"  id=\""+fd+"\" style=\"clear: both;\">" ).appendTo( document.body);
+            $('#container').append( "<hr><article class=\"row\"  id=\""+fd+"\"></article>" );
 			var i=0;
 			for (var prop in f) {
 				i++;
 				if (i!=1){$('#'+fd+'').append("<span class=\"align-self-center theEqual\">=</span>");}
 				$('#'+fd+'').append("<span class=\"align-self-center\">$$"+f[prop]+"$$</span\>");
-				renderMathInElement(document.body);
 			}
-		    $('#formulaDiv').add( "</article></section>" ).appendTo(document.body); 
+            renderMathInElement(document.body);
         }
-			
 		// ------------------выпадающее меню по наведению----------
-		$(".theEqual").add("#menuGap").hover(function(){ 	
-            $("#menuGap").css( "display", "flex" ) 
-                    .css("top",event.clientY)
-                    .css("left",event.clientX);
-                    $(this,'.theEqual').css("background", "#ddd")
+		$('.theEqual').add("#menuGap").hover(function(){ 	
+            $("#menuGap").css( "display", "block" ) 
+                .css("top",event.clientY)
+                .css("left",event.clientX);
+                $(this,'.theEqual').css("background", "#ddd")
             }, function(){  	
             $( "#menuGap" ).css( "display", "none" ) 
             $(".theEqual").css("background", "transparent")	
           });
-        });
+
+
+        // --------------------вложенные ряды-----------------------
+        var r1=[
+            "y=\\dfrac{2x-1}{4}\\sqrt{2+x-x^2}+\\dfrac{9}{8}\\cdot\\arcsin{\\dfrac{2x-1}{3}} ",
+            "y'=(\\dfrac{1}{2}\\sqrt{2+x-x^2}+\\dfrac{(2x-1)(1-2x)}{8\\sqrt{2+x-x^2}})+\\dfrac{9}{8}\\cdot\\dfrac{\\dfrac{2}{3}}{\\sqrt{1-(\\dfrac{2x-1}{3})^2}}",
+            "(\\dfrac{1}{2}\\sqrt{2+x-x^2}+\\dfrac{(2x-1)(1-2x)}{8\\sqrt{2+x-x^2}})+\\dfrac{3}{4}\\cdot\\dfrac{3}{\\sqrt{-4x^2+4x+8}} ",
+            "\\dfrac{1}{2}\\sqrt{2+x-x^2}+\\dfrac{(2x-1)(1-2x)}{8\\sqrt{2+x-x^2}}+\\dfrac{9}{8\\sqrt{2+x-x^2}} ",
+            "\\dfrac{1}{2}\\sqrt{2+x-x^2}+\\dfrac{(2x-1)(1-2x)+9}{8\\sqrt{2+x-x^2}} ",
+            "\\dfrac{1}{2}\\sqrt{2+x-x^2}+\\dfrac{8+4x-4x^2}{8\\sqrt{2+x-x^2}} ",
+            "\\dfrac{1}{2}\\sqrt{2+x-x^2}+\\dfrac{4(2+x-x^2)}{8\\sqrt{2+x-x^2}} ",
+            "\\sqrt{2+x-x^2}."
+        ];
+        $('#button0').append('$$'+r1[0]+'$$')
+        renderMathInElement(document.body);
+        for (var i=1;i<10;i++){
+            cardGen(r1[0],r1[i],i);
+        }
         //------------------генерация вложенного ряда---------------
         
-        function cardGen(str) {
-            cardDiv.addClass("card").append( "<span>$$"+str+"$$  </span>" );
-            renderMathInElement(document.body);
+        function cardGen(headerStr,str,n) {
+            if(str){
+                $('#cardBody'+(n-1)).append("<section class=\"card\"><header class=\"card-header\" id=\"heading"+n+"\"><button class=\"btn\" type=\"button\" data-toggle=\"collapse\" data-target=\"#collapse"+n+"\"aria-controls=\"collapse"+n+"\" id=\"button"+n+"\">=</button></header>    <div id=\"collapse"+n+"\" class=\"collapse\" aria-labelledby=\"heading"+n+"\" data-parent=\"#mathCard"+n+"\"><div class=\"card-body\" id=\"cardBody"+n+"\"></div></div></section>");
+                renderMathInElement(document.body);
+                    $('#cardBody'+n).append('$$'+str+'$$').addClass('row')
+                    renderMathInElement(document.body);
+            }
         };
-        document.addEventListener("DOMContentLoaded", function() {
-            renderMathInElement(document.body);
-        });
-        
+        renderMathInElement(document.body);
+    });        
     </script>
 </body>
 </html>
